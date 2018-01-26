@@ -2,22 +2,28 @@ from bs4 import BeautifulSoup
 import urllib.request
 import re
 import os
-from ServantData import ServantData
-from Utils import *
+import download_wikia_data as wikia
 
 def main():
-	servant_dict = get_servant_dictionary()
+	wikia.download_wikia_data()
 	
-	# for name, url in servant_dict.items():
-		# print(name, url)
+	# qwe = next (iter (servant_dict.items()))
 	
-	qwe = next (iter (servant_dict.items()))
+	# print(qwe)
 	
-	print(qwe)
+	# mashu = WikiaServantData(qwe[0], qwe[1])
+	# mashu.fill_data()
+	# mashu.save_data()
 	
-	mashu = ServantData(qwe[0], qwe[1])
-	mashu.fill_data()
-	mashu.save_data()
+	# appmedia is unreliable training data probably or something
+	# appmedia_base_url = 'https://appmedia.jp/fategrandorder/'
+	# appmedia_servant_lists = ['429305', '429052', '100382', '93558', '96261']
+	# servant_links = []
+	# for page_id in appmedia_servant_lists:
+		# soup = get_html_soup(appmedia_base_url + page_id)
+		# servant_links += [link['href'] for link in soup.find_all('table', border='1')[1].find_all('a')]
+
+	# print(len(servant_links))
 
 if __name__ == "__main__":
 	main()
